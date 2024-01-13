@@ -80,9 +80,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Mingshuo Cai"
+  name             : "Cai-Mingshuo"
   avatar           : "profile.jpg"
-  bio              : "Senior student major in Intelligent Science and Technology, School of Artificial Intelligence, Xidian University"
+  bio              : <p style="text-align:justify; text-justify:inter-ideograph;"> Senior student major in Intelligent Science and Technology, School of Artificial Intelligence, Xidian University"
   location         : "Xi'an,Shaanxi"
   employer         :
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
