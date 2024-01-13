@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "en-CN"
 title                    : "Ming shuo Cai/Personal Homepage"
 title_separator          : "-"
 name                     : &name "Mingshuo Cai"
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           :"cfcys"
   google_plus      :
   keybase          :
   instagram        :
@@ -106,10 +106,10 @@ author:
   orcid            : "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    :"/23237921/蔡明硕"
   steam            :
   tumblr           :
-  twitter          : "https://twitter.com/MingshuoCai"
+  twitter          : "MingshuoCai"
   vine             :
   weibo            :
   xing             :
