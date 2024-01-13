@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "[mingshuo Cai](cfcys.github.io)"
+title: "<center><a href="https://cfcys.github.io/" title="Mingshuo Cai">Mingshuo Cai (蔡明硕)</a></center>"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm a third year undergraduate student from [School of Artifical Intelligence](https://sai.xidian.edu.cn/), [Xidian University](https://www.xidian.edu.cn/). My research interest includes computer vision, remote sensing image processing, and the interpretability of AI Security.
+<p style="text-align:justify; text-justify:inter-ideograph;"> I'm a third year undergraduate student from [School of Artifical Intelligence](https://sai.xidian.edu.cn/), [Xidian University](https://www.xidian.edu.cn/). My research interest includes computer vision, remote sensing image processing, and the interpretability of AI Security.
 
 I am very fortunate to be advised by [Bobo Xi](https://www.XXX.com/) of [State Key Laboratory of Integrated Service Networks](https://isn.xidian.edu.cn/), School of Telecommunications Engineering, Xidian University.
 You can find my CV here: [XX's Curriculum Vitae](../assets/Curriculum_Vitae.pdf).
