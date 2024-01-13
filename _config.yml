@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-CN"
-title                    : "Ming shuo Cai/Personal Homepage"
+title                    : "Mingshuo Cai/Personal Homepage"
 title_separator          : "-"
 name                     : &name "Mingshuo Cai"
 description              : &description "personal description"
