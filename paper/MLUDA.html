@@ -4,7 +4,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!-- Begin Jekyll SEO tag v2.8.0 -->
-  <title>MLUDA | 主页</title>
+  <title>MLUDA | Project page</title>
   <meta name="generator" content="Jekyll v3.9.3">
   <meta property="og:title" content="SGNet">
   <meta property="og:locale" content="en_US">
@@ -655,8 +655,9 @@
       <h3 align="center">Mind the Gap: Mutil-Level<br /> 
         Unsupervised Domain Adaptation for Cross-scene <br />
         Hyperspectral Image Classification</h3>
-      <p align="center"> Mingshuo Cai, Bobo Xi, <i>Member, IEEE,</i> Jiaojiao Li, <i>Member, IEEE</i>, Yunsong Li, <i>Member, IEEE</i>, <br />
-        Shou Feng, <i>Member, IEEE</i>, Zan Li, <i>Senior Member, IEEE</i>, and Jocelyn Chanussot, <i>Fellow, IEEE</i> <br /> <a
+      <p align="center"> <strong>Mingshuo Cai</strong>, Bobo Xi, <i>Member, IEEE,</i> Jiaojiao Li, <i>Member, IEEE</i>,<br /> 
+        Shou Feng, <i>Member, IEEE</i>, Yunsong Li, <i>Member, IEEE</i>, <br />
+        Zan Li, <i>Senior Member, IEEE</i>, and Jocelyn Chanussot, <i>Fellow, IEEE</i> <br /> <a
           href="https://cfcys.github.io/paper/MLUDA.html/"><strong>⭐ Project Home »</strong></a> <br> <a
           href="https://arxiv.org/pdf/XXXX.pdf" target="_black">[PDF <svg class="svg-inline--fa fa-book fa-w-14"
             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book" role="img"
@@ -680,32 +681,27 @@
         }
       </style>
       <h3 id="abstract">Abstract</h3>
-      <p style="text-align:justify; text-justify:inter-ideograph"> 3D spatial information is known to be beneficial to
-        the semantic segmentation task. Most existing methods take 3D spatial data as an additional input, leading to a
-        two-stream segmentation network that processes RGB and 3D spatial information separately. This solution greatly
-        increases the inference time and severely limits its scope for real-time applications. To solve this problem, we
-        propose Spatial information guided Convolution (S-Conv), which allows efficient RGB feature and 3D spatial
-        information integration. S-Conv is competent to infer the sampling offset of the convolution kernel guided by
-        the 3D spatial information, helping the convolutional layer adjust the receptive field and adapt to geometric
-        transformations. S-Conv also incorporates geometric information into the feature learning process by generating
-        spatially adaptive convolutional weights. The capability of perceiving geometry is largely enhanced without much
-        affecting the amount of parameters and computational cost. We further embed S-Conv into a semantic segmentation
-        network, called Spatial information Guided convolutional Network (SGNet), resulting in real-time inference and
-        state-of-the-art performance on NYUDv2 and SUNRGBD datasets.</p>
-      <h3 id="architecture-of-s-conv">Architecture of S-Conv</h3>
+      <p style="text-align:justify; text-justify:inter-ideograph"> Recently, cross-scene hyperspectral image classification (HSIC) has attracted increasing attention, alleviating the dilemma of no labeled samples in the target domain.
+        Although collaborative source and target training has dominated this field, how to train effective feature extractors and overcome the intractable domain gaps remains a challenge. 
+        To cope with this issue, we propose a multi-level unsupervised domain adaptation (MLUDA) framework, which comprises image-, feature-, and logic-level alignment between domains to fully investigate the comprehensive spectral-spatial information. 
+        Specifically, at the holistic image level, we propose an innovative domain adaptation method named GuidePGC based on classic image matching techniques and the guided filter. The adaptation results are physically explainable with intuitive visual observations.
+        Regarding the feature level, we design a multi-branch cross attention structure (MBCA) specifically for HSIC, which enhances the interaction between the features from the source and target domains through dot-product attention.
+        Finally, at the logic level, we adopt a supervised contrastive learning (SCL) approach that incorporates a pseudo-label strategy and local maximum mean discrepancy loss, leading to increased inter-class distance across diverse domains and further improving the classification performance.
+        Experimental results on three benchmark cross-scene datasets demonstrate that our proposed method consistently outperforms the compared approaches. </p>
+      <h3 id="architecture-of-s-conv">Architecture of MLUDA</h3>
       <div style="text-align:center">
-        <p><img src="./SGNet _ 主页_files/s_conv2.png" alt="Architecture of S-Conv" title="Architecture of S-Conv"></p>
+        <p><img src="./SGNet _ 主页_files/All_structure.png" alt="Architecture of S-Conv" title="Architecture of S-Conv"></p>
       </div>
       <h3 id="results">Results</h3>
-      <p>Following results tested under NVIDIA 1080TI GPU, Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz:</p>
-      <p><strong>Results on NYUDv2 Dataset</strong></p>
+      <p>Following results tested under NVIDIA 4090Ti</p>
+      <p><strong>Results on Houston Dataset</strong></p>
       <div style="text-align:center">
-        <p><img src="./SGNet _ 主页_files/sgnet_result.png" alt="Results" title="Results"></p>
+        <p><img src="./SGNet _ 主页_files/Houston.gif" alt="Results" title="Results"></p>
       </div>
       <div style="text-align:center">
-        <p><img src="./SGNet _ 主页_files/sconv_compare.png" alt="Results" title="Results"></p>
+        <p><img src="./SGNet _ 主页_files/Result_Houston.png" alt="Results" title="Results"></p>
       </div>
-      <table>
+      <!-- <table>
         <thead>
           <tr>
             <th style="text-align: center">Model</th>
@@ -738,9 +734,15 @@
             <td style="text-align: center">26</td>
           </tr>
         </tbody>
-      </table>
-      <p><strong>Results on SUNRGBD Dataset</strong></p>
-      <table>
+      </table> -->
+      <p><strong>Results on PAVIA Dataset</strong></p>
+      <div style="text-align:center">
+        <p><img src="./SGNet _ 主页_files/Pavia.gif" alt="Results" title="Results"></p>
+      </div>
+      <div style="text-align:center">
+        <p><img src="./SGNet _ 主页_files/Result_Houston.png" alt="Results" title="Results"></p>
+      </div>
+      <!-- <table>
         <thead>
           <tr>
             <th style="text-align: center">Model</th>
@@ -767,6 +769,34 @@
           </tr>
         </tbody>
       </table>
+      <p><strong>Results on SH2HZ Dataset</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align: center">Model</th>
+            <th style="text-align: center">mIoU(480x640)</th>
+            <th style="text-align: center">mIoU(MS)</th>
+            <th style="text-align: center">FPS(480x640)</th>
+            <th style="text-align: center">FPS(425x560)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center">SGNet</td>
+            <td style="text-align: center">47.1%</td>
+            <td style="text-align: center">48.5%</td>
+            <td style="text-align: center">26</td>
+            <td style="text-align: center">28</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SGNet_ASPP</td>
+            <td style="text-align: center">47.5%</td>
+            <td style="text-align: center">48.6%</td>
+            <td style="text-align: center">24</td>
+            <td style="text-align: center">26</td>
+          </tr>
+        </tbody>
+      </table> -->
       <h3 id="some-follow-up-work"><strong>Some follow-up work</strong></h3>
       <p><strong>Global-Local Propagation Network for RGB-D Semantic Segmentation.</strong> Chen Sihan, Xinxin Zhu, Wei
         Liu, Xingjian He, and Jing Liu. arXiv preprint arXiv:2101.10801 (2021).</p>
