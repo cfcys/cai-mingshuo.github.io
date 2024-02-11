@@ -8,4 +8,4 @@ date: 2023-01-01
 location: "Xidian University"
 ---
 
-I participated in the 2022 years National Undergraduate Mathmatical Contest, and finally was awarded as [the First Price](/images/competition_2.jpg).
+<!-- I participated in the 2022 years National Undergraduate Mathmatical Contest, and finally was awarded as [the First Price](/images/competition_2.jpg). -->
