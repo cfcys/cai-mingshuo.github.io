@@ -1,20 +1,11 @@
 ---
-title: "Teaching experience 2"
+title: "Study experience in Xidinas"
 collection: teaching
-type: "Workshop"
-permalink: /teaching/2015-spring-teaching-1
-venue: "University 1, Department"
-date: 2015-01-01
-location: "City, Country"
+type: "Undergraduate"
+permalink: /teaching/2014-spring-teaching-1
+venue: "Senior in Intelligent Science and Technology, School of Artificial Intelligence, Xidian University"
+date: 2021-09-01
+location: "Xian, China"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+I’m a third year undergraduate student from School of Artifical Intelligence, Xidian University. My research interest includes computer vision, remote sensing image processing, and the interpretability of AI Security.
