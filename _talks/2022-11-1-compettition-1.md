@@ -9,4 +9,4 @@ location: "Xidian University"
 ---
 
 <!-- I participated in the 2022 years National Undergraduate Mathmatical Modeling Contest, chose the topic of B, and finally was awarded as [the Second Price](/images/competition_1.jpg). -->
-a
+aaaaaaaaaaaa
