@@ -8,6 +8,8 @@ tags:
   - VAE
 ---
 
+这篇博客介绍了我在入门diffusion时入门所学到的一些生成模型的的笔记
+
 # VAE
 ## AE Auto-Encoder
 Auto是自己训练自己的意思，由encoder和decoder组成，重建图像和原始图像之间的重建损失来进行优化，AE一般都是用于降维的，一般用于压缩重构；VAE则是用来做generative,做图像生成。
