@@ -1,4 +1,13 @@
-#! https://zhuanlan.zhihu.com/p/677769471
+---
+title: 'Diffusion入门知识1'
+date: 2023-12-03
+permalink: /posts/2024/01/blog-diffusion/
+star: superior
+tags:
+  - 扩散模型
+  - VAE
+---
+
 # VAE
 ## AE Auto-Encoder
 Auto是自己训练自己的意思，由encoder和decoder组成，重建图像和原始图像之间的重建损失来进行优化，AE一般都是用于降维的，一般用于压缩重构；VAE则是用来做generative,做图像生成。
