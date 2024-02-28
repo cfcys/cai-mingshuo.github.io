@@ -22,11 +22,14 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 ![这里的conv和deconv有点意思](/images/blog/Blog2/image-10.png)
 
 ### VAE网络结构
+
 * Encoder&Decoder
     * Encoder:   $q(z|x)$(神经网络的参数为$\phi$) => $q_{\phi}(z|x)$
     * Decoder：$p(x|z)$(神经网络的参数为$\theta$) = > $p_{\theta}(x|z)$
+
 * latent space
     * 编码器的输出：是两个向量，一个是均值向量$\mu$,一个是标准差向量$\sigma$,他们长度相同，一起定义了输入数据**在latent space中的represention**
+
 ### VAE损失
 
 $$
