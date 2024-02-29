@@ -1,5 +1,5 @@
 ---
-title: "First prize in the College Student Statistical Modeling Competition"
+title: "The first prize in the College Student Statistical Modeling Competition"
 collection: talks
 type: "provincial level"
 permalink: /talks/2023-01-01-competition-2

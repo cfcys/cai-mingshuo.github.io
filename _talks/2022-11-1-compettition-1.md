@@ -1,5 +1,5 @@
 ---
-title: "The First Price of National Undergraduate Mathmatical Modeling Contest(2023)"
+title: "The First Price of National Undergraduate Mathmatical Modeling Contest(2022)"
 collection: talks
 type: "Provincial level"
 permalink: /talks/2022-11-1-compettition-1
