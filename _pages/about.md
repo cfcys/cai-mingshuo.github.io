@@ -12,7 +12,7 @@ I'm a third year undergraduate student from [School of Artifical Intelligence](h
 
 I am very fortunate to be advised by [Bobo Xi](https://web.xidian.edu.cn/xibobo/) of [State Key Laboratory of Integrated Service Networks](https://isn.xidian.edu.cn/), School of Telecommunications Engineering, Xidian University.
 
-You can find my CV here: [XX's Curriculum Vitae](../assets/Curriculum_Vitae.pdf).
+<!-- You can find my CV here: [XX's Curriculum Vitae](../assets/Curriculum_Vitae.pdf). -->
 
 Publications
 ======
