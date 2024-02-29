@@ -1,10 +1,10 @@
 ---
-title: "Study experience in Xidinas"
+title: "Study experience in Xidian"
 collection: teaching
 type: "Undergraduate"
 permalink: /teaching/2014-spring-teaching-1
 venue: "Senior in Intelligent Science and Technology, School of Artificial Intelligence, Xidian University"
-date: 2021-09-01
+date: 2023-09-01
 location: "Xian, China"
 ---
 
