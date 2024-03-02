@@ -85,7 +85,17 @@ $$P(x)=\int\limits_{z}P(z)P(x|z)dz$$
 
 * Encoder的引入
 
-第一个神经网络是Decoder，他求解的是$\mu$和$\sigma$这两个函数，这是我们求解
+第一个神经网络是Decoder，他求解的是$\mu$和$\sigma$这两个函数，这是我们求解$p(x|z)$的过程
+![Alt text](image-7.png)
+
+第二个神经网络叫做Encoder，它求解的结果是$q(z|x)$，$q$可以代表任何分布。
+
+![Alt text](image-8.png)
+
+> 你可能好奇我为什么先引出Decoder再引出Encoder，这样做的为了体现**Encoder主要是在辅助第一个Decoder求解$p(x|z)$**，这是整个VAE中最为巧妙的概念。
+
+我们最开始求解的目标式子是：$P(x)=\int\limits_{z}P(z)P(x|z)dz$,$p(x)$越大，意味着数据点x在模型描述的分布中出现的概率越高，意味着模型可以更好地生成或者解释观测的数据；因此，最大化$p(x)$的过程也是最小化真实数据和模型输出之间的差异，这通常通过ELBO实现
+
 
 ## 什么是ELBO
 ELBO，全称为 Evidence Lower Bound，即证据下界。这里的证据指数据或可观测变量的概率密度。
