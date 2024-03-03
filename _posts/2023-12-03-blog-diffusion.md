@@ -24,8 +24,8 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 ### VAE网络结构
 
 * Encoder&Decoder
-    * Encoder:   $q(z&#124x)$(神经网络的参数为$\phi$) => $q_{\phi}(z&#124x)$
-    * Decoder：$p(x&#124z)$(神经网络的参数为$\theta$) = > $p_{\theta}(x&#124z)$
+    * Encoder:   $q(z\vert x)$(神经网络的参数为$\phi$) => $q_{\phi}(z\vert x)$
+    * Decoder：$p(x\vert z)$(神经网络的参数为$\theta$) = > $p_{\theta}(x\vert z)$
 
 * latent space
     * 编码器的输出：是两个向量，一个是均值向量$\mu$,一个是标准差向量$\sigma$,他们长度相同，一起定义了输入数据**在latent space中的represention**
@@ -33,15 +33,15 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 ### VAE损失
 
 $$
-{\mathcal L}(\theta,\phi;\mathbf{x},\mathbf{z})=\underbrace{\mathbb{E}_{q_{\phi}(z&#124x)}\left[\log p_{\theta}(x&#124z)\right]}_{\text{reconstruction loss}}-\underbrace{D_{KL}\left(q_{\phi}(z&#124x)\&#124p(z)\right)}_{\text{stay close to Normal}(0,1)}
+{\mathcal L}(\theta,\phi;\mathbf{x},\mathbf{z})=\underbrace{\mathbb{E}_{q_{\phi}(z\vert x)}\left[\log p_{\theta}(x\vert z)\right]}_{\text{reconstruction loss}}-\underbrace{D_{KL}\left(q_{\phi}(z\vert x)\\vert p(z)\right)}_{\text{stay close to Normal}(0,1)}
 $$
 
 #### 直观的理解
-一般来说 我们通过观测数据来获得对数据的见解或者知识，比如看到一个图片就可以知道其是哪个类别(我们称之为推理”);我们可以通过采样来获得$\chi\sim\mathcal{P}(X)$，然后可以通过条件概率$z\thicksim p(z&#124x)$来对隐变量$z$进行采样从而可以完成推理的过程
+一般来说 我们通过观测数据来获得对数据的见解或者知识，比如看到一个图片就可以知道其是哪个类别(我们称之为推理”);我们可以通过采样来获得$\chi\sim\mathcal{P}(X)$，然后可以通过条件概率$z\thicksim p(z\vert x)$来对隐变量$z$进行采样从而可以完成推理的过程
 贝叶斯推理过程（即为$z$）为
 
 $$
-p(z&#124x)=\frac{p(x&#124z)p(z)}{p_{\theta}(x)}=\frac{p(x&#124z)p(z)}{\int_{z}p_{\theta}(x,z)dz}
+p(z\vert x)=\frac{p(x\vert z)p(z)}{p_{\theta}(x)}=\frac{p(x\vert z)p(z)}{\int_{z}p_{\theta}(x,z)dz}
 $$
 
 该式的得到的是一种真实的概率分布，但是这个尤其是$p_{\theta}$比较难算，则**使用一组近似的过程去近似这个过程**(我们称之为“变分”)或者另一种方法是模特卡罗采样
@@ -54,11 +54,11 @@ $$z\sim p(z)=\begin{cases}e^{-z},z\geq0\\0&,z<0\end{cases}=e^{-z}I(z\geq0)$$
 
 通过均值这个参数和隐变量去关联起来
 
-$$x-p(x&#124z)=N(x,\mu=z,\sigma=1)=\frac1{\sqrt{2\pi}}e^{(-\frac12(x-z)^2)}$$
+$$x-p(x\vert z)=N(x,\mu=z,\sigma=1)=\frac1{\sqrt{2\pi}}e^{(-\frac12(x-z)^2)}$$
 
 其联合概率分布为
 
-$$p(x,z)=p(x&#124z)p(z)=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(x-z)^2)}e^{-z}I(z\geq0)$$
+$$p(x,z)=p(x\vert z)p(z)=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(x-z)^2)}e^{-z}I(z\geq0)$$
 
 边缘概率密度(在隐空间内进行积分)为
 
@@ -67,22 +67,22 @@ $$p(x)=\int_0^\infty p(x,z)\mathrm{~}dz=\int_0^\infty e^{-z}\frac1{\sqrt{2\pi}}e
 可以看出这个积分十分地复杂，无法进行计算。
 
 ##### Example 2
-在贝叶斯公式中，我们可以看出，后验概率$p(z&#124x)$是正比于联合概率分布$P(x,z)$有
+在贝叶斯公式中，我们可以看出，后验概率$p(z\vert x)$是正比于联合概率分布$P(x,z)$有
 
-$$p(x,z)=p(x&#124z)p(z)=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(x-z)^{2})}e^{-z}I(z\geq0)$$
+$$p(x,z)=p(x\vert z)p(z)=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(x-z)^{2})}e^{-z}I(z\geq0)$$
 
 <img src="/images/blog/Blog2/image-8.png" alt="Alt text" style="zoom: 33%;" />
 
-经过一系列推导，最终得到后验概率为$p(z&#124x){\sim}\frac1{\sqrt{2\pi}}e^{(-\frac12(z-(x-1))^2)}I(z\geq0)$说明$p(z&#124x)$在$z\geq0$时正比于均值为1的高斯分布
+经过一系列推导，最终得到后验概率为$p(z\vert x){\sim}\frac1{\sqrt{2\pi}}e^{(-\frac12(z-(x-1))^2)}I(z\geq0)$说明$p(z\vert x)$在$z\geq0$时正比于均值为1的高斯分布
 
 ##### Example 3
 针对不同的概率值，其观测的边缘概率值是不同的
 
-在这三个例子下(虽然我也不知道这三个例子与后面的关系)，我们看到了后验概率$p_{\theta}(z&#124x)$与其他变量有很多的关系，这里引入$q_{\phi}(z)$来进行对其的逼近
+在这三个例子下(虽然我也不知道这三个例子与后面的关系)，我们看到了后验概率$p_{\theta}(z\vert x)$与其他变量有很多的关系，这里引入$q_{\phi}(z)$来进行对其的逼近
 
 $$
 \begin{split}
-KL\left[q_\phi(z)\&#124p_\theta(z&#124x)\right]&=-\sum_zq_\phi(z)\log \frac{p_\theta(z&#124x)}{q_\phi(z)}\\
+KL\left[q_\phi(z)\\vert p_\theta(z\vert x)\right]&=-\sum_zq_\phi(z)\log \frac{p_\theta(z\vert x)}{q_\phi(z)}\\
 &=-\underset{z}{\sum} q_{\phi}(z) \log \bigg( \frac{p_{\theta}(x,z)}{q_{\phi}(z)} \cdot \frac{1}{p_{\theta}(x)} \bigg) \\
 &= -\underset{z}{\sum} q_{\phi}(z) \bigg( \log\frac{p_{\theta}(x,z)}{q_{\phi}(z)} - \log p_{\theta}(x) \bigg) \\
 &= -\underset{z}{\sum} q_{\phi}(z) \log \frac{p_{\theta}(x,z)}{q_{\phi}(z)} + \underset{z}{\sum} q_{\phi}(z) \log p_{\theta}(x)\\
@@ -121,9 +121,9 @@ $$
 * input: $x$,hidden: $\mu$ , $\sigma$ ,output $\tilde{x}$.
     * $x$ : data，可观测的；latent variable models假设的是，latent space中的$z$导致了$x$
     * 概率图的角度就是 $z->x(generative models的generation process)$
-        * Encoder就是$q_{\phi}(z&#124x),x->z$
+        * Encoder就是$q_{\phi}(z\vert x),x->z$
         * latent distribution  $z=\mu+\sigma\odot\epsilon $
-        * Decoder就是$p_{\theta}(x&#124z),z\rightarrow{\tilde{x}}$
+        * Decoder就是$p_{\theta}(x\vert z),z\rightarrow{\tilde{x}}$
         * $q_{\phi}$和$p_{\theta}$是非常经典的一对
 
 其中框起来的为和自编码器一样的重建损失，后面的则是KL散度，可以用来描述学习和分布和高斯分布之间的相似性
