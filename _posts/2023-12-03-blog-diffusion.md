@@ -33,7 +33,7 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 ### VAE损失
 
 $$
-{\mathcal L}(\theta,\phi;\mathbf{x},\mathbf{z})=\underbrace{\mathbb{E}_{q_{\phi}(z\vert x)}\left[\log p_{\theta}(x\vert z)\right]}_{\text{reconstruction loss}}-\underbrace{D_{KL}\left(q_{\phi}(z\vert x)\\vert p(z)\right)}_{\text{stay close to Normal}(0,1)}
+{\mathcal L}(\theta,\phi;\mathbf{x},\mathbf{z})=\underbrace{\mathbb{E}_{q_{\phi}(z\vert x)}\left[\log p_{\theta}(x\vert z)\right]}_{\text{reconstruction loss}}-\underbrace{D_{KL}\left(q_{\phi}(z\vert x)\vert p(z)\right)}_{\text{stay close to Normal}(0,1)}
 $$
 
 #### 直观的理解
