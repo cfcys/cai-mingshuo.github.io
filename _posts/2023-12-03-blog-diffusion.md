@@ -30,10 +30,10 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 * latent space
     * 编码器的输出：是两个向量，一个是均值向量$\mu$,一个是标准差向量$\sigma$,他们长度相同，一起定义了输入数据**在latent space中的represention**
 
-### VAE损失
+### VAE损失函数
 
 $$
-{\mathcal L}(\theta,\phi;\mathbf{x},\mathbf{z})=\underbrace{\mathbb{E}_{q_{\phi}(z\vert x)}\left[\log p_{\theta}(x\vert z)\right]}_{\text{reconstruction loss}}-\underbrace{D_{KL}\left(q_{\phi}(z\vert x)\\vert p(z)\right)}_{\text{stay close to Normal}(0,1)}
+{\mathcal L}(\theta,\phi;\mathbf{x},\mathbf{z})=\underbrace{\mathbb{E}_{q_{\phi}(z\vert x)}\left[\log p_{\theta}(x\vert z)\right]}_{\text{reconstruction loss}}-\underbrace{D_{KL}\left(q_{\phi}(z\vert x)\vert p(z)\right)}_{\text{stay close to Normal}(0,1)}
 $$
 
 #### 直观的理解
