@@ -15,7 +15,7 @@ tags:
 ## AE Auto-Encoder
 Auto是自己训练自己的意思，由encoder和decoder组成，重建图像和原始图像之间的重建损失来进行优化，AE一般都是用于降维的，一般用于压缩重构；VAE则是用来做generative,做图像生成。
 
-<p><img src="[/images/blog/Blog2/image-9.png]" align="middle" /></p>
+<p><img src="[/images/blog/Blog2/image-9.png]",align="middle" /></p>
 
 
 ![Alt text](/images/blog/Blog2/image-9.png #pic_center)
@@ -140,7 +140,7 @@ $$
         * Decoder就是$p_{\theta}(x\vert z),z\rightarrow{\tilde{x}}$
         * $q_{\phi}$和$p_{\theta}$是非常经典的一对
 
-其中框起来的为和自编码器一样的重建损失，后面的则是KL散度，可以用来描述学习和分布和高斯分布之间的相似性
+其中框起来的为和自编码器一样的重建损失，后面的则是KL散度，可以用来描述学习到的分布和高斯分布之间的相似性
 
 ![VAE的代码，其实很简洁](/images/blog/Blog2/image-1.png)
 
