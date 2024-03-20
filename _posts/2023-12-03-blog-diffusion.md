@@ -15,12 +15,6 @@ tags:
 ## AE Auto-Encoder
 Auto是自己训练自己的意思，由encoder和decoder组成，重建图像和原始图像之间的重建损失来进行优化，AE一般都是用于降维的，一般用于压缩重构；VAE则是用来做generative,做图像生成。
 
-<p><img src="/images/blog/Blog2/image-9.png",align="middle" /></p>
-
-
-
-jm
-
 ![Alt text](/images/blog/Blog2/image-9.png#pic_center)
 
 ## VAE Variational Auto-Encoder
