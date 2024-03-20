@@ -41,7 +41,7 @@ $$
 {\mathcal L}(\theta,\phi;\mathbf{x},\mathbf{z})=\underbrace{\mathbb{E}_{q_{\phi}(z\vert x)}\left[\log p_{\theta}(x\vert z)\right]}_{\text{reconstruction loss}}-\underbrace{D_{KL}\left(q_{\phi}(z\vert x)\vert p(z)\right)}_{\text{stay close to Normal}(0,1)}
 $$
 
-#### 直观的理解
+## 直观的理解
 一般来说 我们通过观测数据来获得对数据的见解或者知识，比如看到一个图片就可以知道其是哪个类别(我们称之为推理”);我们可以通过采样来获得$\chi\sim\mathcal{P}(X)$，然后可以通过条件概率$z\thicksim p(z\vert x)$来对隐变量$z$进行采样从而可以完成推理的过程
 贝叶斯推理过程（即为$z$）为
 
@@ -49,9 +49,9 @@ $$
 p(z\vert x)=\frac{p(x\vert z)p(z)}{p_{\theta}(x)}=\frac{p(x\vert z)p(z)}{\int_{z}p_{\theta}(x,z)dz}
 $$
 
-该式的得到的是一种真实的概率分布，但是这个尤其是$p_{\theta}$比较难算，则**使用一组近似的过程去近似这个过程**(我们称之为“变分”)或者另一种方法是模特卡罗采样
+该式得到的是一种真实的概率分布，但是这个尤其是$p_{\theta}$比较难算，则**使用一组近似的过程去近似这个过程**(我们称之为“变分”)或者另一种方法是模特卡罗采样,下面是对这个内容的举例说明。
 
-##### Example 1
+### Example 1
 
 隐变量z的分布为
 
@@ -71,7 +71,7 @@ $$p(x)=\int_0^\infty p(x,z)\mathrm{~}dz=\int_0^\infty e^{-z}\frac1{\sqrt{2\pi}}e
 
 可以看出这个积分十分地复杂，无法进行计算。
 
-##### Example 2
+### Example 2
 
 在贝叶斯公式中，我们可以看出，后验概率$p(z\vert x)$是正比于联合概率分布$P(x,z)$有
 
