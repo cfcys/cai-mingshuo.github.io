@@ -22,7 +22,7 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 
 ## VAE Variational Auto-Encoder
 ### 简介
-变分自编码器，Variation指的是分布的意思，意思是不在把分布映射到固定的变量上，而是映射到一个分布上(例如高斯分布模型)，VAE是目前最常用的
+变分自编码器，Variation指的是分布的意思，意思是不在把分布映射到固定的变量上，而是映射到一个分布上(例如高斯分布模型)。
 
 ![这里的conv和deconv有点意思](/images/blog/Blog2/image-10.png#pic_center)
 
@@ -77,9 +77,17 @@ $$p(x)=\int_0^\infty p(x,z)\mathrm{~}dz=\int_0^\infty e^{-z}\frac1{\sqrt{2\pi}}e
 
 $$p(x,z)=p(x\vert z)p(z)=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(x-z)^{2})}e^{-z}I(z\geq0)$$
 
-<img src="/images/blog/Blog2/image-8.png" alt="Alt text" style="zoom: 33%;" />
+$$
+\begin{aligned}
+&p(z|x)\sim p(x,z)=p(x|z)p(z)=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(x-z)^{2})}e^{-z}I(z\geq0) \\
+&=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}z^{2}+(x-1)z-\frac{1}{2}x^{2})}I(z\geq0) \\
+&=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(z-(x-1))^{2}+\frac{1}{2}(x-1)^{2}-\frac{1}{2}x^{2})}I(z\geq0) \\
+&=\frac{1}{\sqrt{2\pi}}e^{(\frac{1}{2}(x-1)^{2}-\frac{1}{2}x^{2})}e^{(-\frac{1}{2}(z-(x-1))^{2})}I(z\geq0) \\
+&\sim\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(z-(x-1))^{2})}I(z\geq0)
+\end{aligned}
+$$ 
 
-经过一系列推导，最终得到后验概率为$p(z\vert x){\sim}\frac1{\sqrt{2\pi}}e^{(-\frac12(z-(x-1))^2)}I(z\geq0)$说明$p(z\vert x)$在$z\geq0$时正比于均值为1的高斯分布
+经过一系列如上的推导，最终得到后验概率为$p(z\vert x){\sim}\frac1{\sqrt{2\pi}}e^{(-\frac12(z-(x-1))^2)}I(z\geq0)$说明$p(z\vert x)$在$z\geq0$时正比于均值为1的高斯分布
 
 ##### Example 3
 针对不同的概率值，其观测的边缘概率值是不同的
@@ -101,12 +109,12 @@ $$
 
 ![Alt text](/images/blog/Blog2/image-3.png)
 
-* 自己训练自己的目的是可以在编码器中得到一个维度远远小于原图的隐变量(latent/smaller/compressed representation)，也即一组对图片的压缩表示
+* 自己训练自己的目的是可以在编码器中得到一个维度远远小于原图的隐变量(latent/smaller/compressed representation)，也即一组对图片的压缩表示。
 * AE的重点是针对于隐变量$(z)$去建模
     * 隐变量(Latent variables)是指不可以被直接观察到的变量：例如对健康，智商的评估；可以通过一组可以观测的指标来infer(推断)
     * LDM: Latent Diffusion Model
-* AE关心的是z(latent vectors/variables),前半部分(encoder)，其decoder只是用于确保可以学到一个很好的encoder而已
-* 而VAE只是关心的是生成的过程
+* AE关心的是z(latent vectors/variables),前半部分(encoder)，其decoder只是用于确保可以学到一个很好的encoder而已。
+* 而VAE只是关心的是生成的过程。
 
 
 ![Alt text](/images/blog/Blog2/image-4.png)
@@ -123,7 +131,8 @@ $$
 ### VAE总结
 
 ![Alt text](/images/blog/Blog2/image-2.png)
-* input: $x$,hidden: $\mu$ , $\sigma$ ,output $\tilde{x}$.
+
+* input: $x$ ,hidden: $\mu$ , $\sigma$ ,output $\tilde{x}$.
     * $x$ : data，可观测的；latent variable models假设的是，latent space中的$z$导致了$x$
     * 概率图的角度就是 $z->x(generative models的generation process)$
         * Encoder就是$q_{\phi}(z\vert x),x->z$
@@ -147,6 +156,7 @@ $$
 ![独热编码方式下组成的图模型](/images/blog/Blog2/image-7.png)
 
 #### 直观的理解
+
 
 
 
