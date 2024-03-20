@@ -1,7 +1,7 @@
 ---
 title: 'Diffusion入门知识2'
 date: 2023-12-07
-permalink: /posts/2024/01/blog-diffusion2/
+permalink: /posts/2024/01/blog----初识VAE2/
 star: superior
 tags:
   - 扩散模型
@@ -29,7 +29,6 @@ $$
 ![各种损失的效果](/images/blog/BlogDiffusion2/image.png)
 
 > 直观上看来这个kl正则项的作用是使得编码器生成的隐变量符合标准正态分布。那么事实上如何呢？事实上也确实就是使得编码结果接近标准正态分布，只不过由于reconstruct loss的共同作用结果不会是标准正态分布，否则也就编码不出信息了。接下来就是为什么kl项能够使得编码结果符合标准正态分布呢，这就涉及到对kl loss项的公式分析了。
-
 
 ### 角度二---加入KL散度是为了符合正太分布，那为什么要符合正态分布呢？
 

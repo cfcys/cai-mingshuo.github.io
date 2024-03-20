@@ -1,5 +1,5 @@
 ---
-title: 'Diffusion入门知识1'
+title: 'Diffusion入门知识1---初识VAE'
 date: 2023-12-03
 permalink: /posts/2024/01/blog-diffusion/
 star: superior
@@ -13,19 +13,20 @@ tags:
 # VAE
 ## AE Auto-Encoder
 Auto是自己训练自己的意思，由encoder和decoder组成，重建图像和原始图像之间的重建损失来进行优化，AE一般都是用于降维的，一般用于压缩重构；VAE则是用来做generative,做图像生成。
-![Alt text](/images/blog/Blog2/image-9.png)
+
+![Alt text](/images/blog/Blog2/image-9.png#pic_center)
 
 ## Variational Auto-Encoder
 ### 简介
 变分自编码器，Variation指的是分布的意思，意思是不在把分布映射到固定的变量上，而是映射到一个分布上(例如高斯分布模型)，VAE是目前最常用的
 
-![这里的conv和deconv有点意思](/images/blog/Blog2/image-10.png)
+![这里的conv和deconv有点意思](/images/blog/Blog2/image-10.png#pic_center)
 
 ### VAE网络结构
 
 * Encoder&Decoder
     * Encoder:   $q(z\vert x)$(神经网络的参数为$\phi$) => $q_{\phi}(z\vert x)$
-    * Decoder：$p(x\vert z)$(神经网络的参数为$\theta$) = > $p_{\theta}(x\vert z)$
+    * Decoder：   $p(x\vert z)$(神经网络的参数为$\theta$) = > $p_{\theta}(x\vert z)$
 
 * latent space
     * 编码器的输出：是两个向量，一个是均值向量$\mu$,一个是标准差向量$\sigma$,他们长度相同，一起定义了输入数据**在latent space中的represention**
