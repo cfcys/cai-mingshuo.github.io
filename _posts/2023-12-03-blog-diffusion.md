@@ -18,6 +18,7 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 ![Alt text](/images/blog/Blog2/image-9.png#pic_center)
 
 ## VAE Variational Auto-Encoder
+
 ### 简介
 变分自编码器，Variation指的是分布的意思，意思是不在把分布映射到固定的变量上，而是映射到一个分布上(例如高斯分布模型)。
 
@@ -86,10 +87,10 @@ $$
 
 经过一系列如上的推导，最终得到后验概率为$p(z\vert x){\sim}\frac1{\sqrt{2\pi}}e^{(-\frac12(z-(x-1))^2)}I(z\geq0)$说明$p(z\vert x)$在$z\geq0$时正比于均值为1的高斯分布
 
-##### Example 3
+### Example 3
 针对不同的概率值，其观测的边缘概率值是不同的
 
-在这三个例子下(虽然我也不知道这三个例子与后面的关系)，我们看到了后验概率$p_{\theta}(z\vert x)$与其他变量有很多的关系，这里引入$q_{\phi}(z)$来进行对其的逼近
+在这三个例子下，我们看到了后验概率$p_{\theta}(z\vert x)$与其他变量有很多的关系，这里引入$q_{\phi}(z)$来进行对其进行逼近
 
 $$
 \begin{split}
@@ -123,7 +124,7 @@ $$
 * 通过训练，这里得到的这些图片是原始图片的压缩表示，简单来说为在隐空间中获得采样，通过解码器获取新的图片
 
 
-### VAE总结
+### VAE初步总结
 
 ![Alt text](/images/blog/Blog2/image-2.png)
 
@@ -135,22 +136,6 @@ $$
         * Decoder就是$p_{\theta}(x\vert z),z\rightarrow{\tilde{x}}$
         * $q_{\phi}$和$p_{\theta}$是非常经典的一对
 
-其中框起来的为和自编码器一样的重建损失，后面的则是KL散度，可以用来描述学习到的分布和高斯分布之间的相似性
-
-![VAE的代码，其实很简洁](/images/blog/Blog2/image-1.png)
-
-
-### 变分推理 Variational Inference
-
-![这是VAE基本原理的基础](/images/blog/Blog2/image-6.png)
-
-#### 隐变量图模型 Latent Graphical Model
-
-> 独热编码的方式得到的其实就是隐变量
-
-![独热编码方式下组成的图模型](/images/blog/Blog2/image-7.png)
-
-#### 直观的理解
 
 
 
