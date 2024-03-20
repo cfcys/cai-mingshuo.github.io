@@ -68,6 +68,7 @@ $$p(x)=\int_0^\infty p(x,z)\mathrm{~}dz=\int_0^\infty e^{-z}\frac1{\sqrt{2\pi}}e
 可以看出这个积分十分地复杂，无法进行计算。
 
 ##### Example 2
+
 在贝叶斯公式中，我们可以看出，后验概率$p(z\vert x)$是正比于联合概率分布$P(x,z)$有
 
 $$p(x,z)=p(x\vert z)p(z)=\frac{1}{\sqrt{2\pi}}e^{(-\frac{1}{2}(x-z)^{2})}e^{-z}I(z\geq0)$$
@@ -113,6 +114,7 @@ $$
 ![Alt text](/images/blog/Blog2/image-5.png)
 
 * 通过训练，这里得到的这些图片是原始图片的压缩表示，简单来说为在隐空间中获得采样，通过解码器获取新的图片
+
 #### VAE损失的推导
 * 如果我们想计算$z$的后验概率
 
