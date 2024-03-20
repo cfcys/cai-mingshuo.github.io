@@ -15,7 +15,7 @@ tags:
 ## AE Auto-Encoder
 Auto是自己训练自己的意思，由encoder和decoder组成，重建图像和原始图像之间的重建损失来进行优化，AE一般都是用于降维的，一般用于压缩重构；VAE则是用来做generative,做图像生成。
 
-<p><img src="[/images/blog/Blog2/image-9.png]",align="middle" /></p>
+<p><img src="/images/blog/Blog2/image-9.png",align="middle" /></p>
 
 
 ![Alt text](/images/blog/Blog2/image-9.png #pic_center)
@@ -96,7 +96,7 @@ $$
 
 $$
 \begin{split}
-KL\left[q_\phi(z)\\vert p_\theta(z\vert x)\right]&=-\sum_zq_\phi(z)\log \frac{p_\theta(z\vert x)}{q_\phi(z)}\\
+KL\left[q_\phi(z)\vert p_\theta(z\vert x)\right]&=-\sum_zq_\phi(z)\log \frac{p_\theta(z\vert x)}{q_\phi(z)}\\
 &=-\underset{z}{\sum} q_{\phi}(z) \log \bigg( \frac{p_{\theta}(x,z)}{q_{\phi}(z)} \cdot \frac{1}{p_{\theta}(x)} \bigg) \\
 &= -\underset{z}{\sum} q_{\phi}(z) \bigg( \log\frac{p_{\theta}(x,z)}{q_{\phi}(z)} - \log p_{\theta}(x) \bigg) \\
 &= -\underset{z}{\sum} q_{\phi}(z) \log \frac{p_{\theta}(x,z)}{q_{\phi}(z)} + \underset{z}{\sum} q_{\phi}(z) \log p_{\theta}(x)\\
