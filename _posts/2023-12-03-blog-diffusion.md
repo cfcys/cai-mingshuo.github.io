@@ -105,7 +105,7 @@ KL\left[q_\phi(z)\\vert p_\theta(z\vert x)\right]&=-\sum_zq_\phi(z)\log \frac{p_
 \end{split}
 $$
 
-### 直观角度去理解VAE
+### 从一个比较直观的角度去理解VAE
 
 ![Alt text](/images/blog/Blog2/image-3.png)
 
@@ -125,8 +125,6 @@ $$
 
 * 通过训练，这里得到的这些图片是原始图片的压缩表示，简单来说为在隐空间中获得采样，通过解码器获取新的图片
 
-#### VAE损失的推导
-* 如果我们想计算$z$的后验概率
 
 ### VAE总结
 
