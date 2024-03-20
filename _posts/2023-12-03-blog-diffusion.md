@@ -11,12 +11,16 @@ tags:
 这篇博客介绍了我在入门diffusion时入门所学到的一些生成模型的的笔记
 
 # VAE
+
 ## AE Auto-Encoder
 Auto是自己训练自己的意思，由encoder和decoder组成，重建图像和原始图像之间的重建损失来进行优化，AE一般都是用于降维的，一般用于压缩重构；VAE则是用来做generative,做图像生成。
 
-![Alt text](/images/blog/Blog2/image-9.png#pic_center)
+<p><img src="[/images/blog/Blog2/image-9.png]" align="middle" /></p>
 
-## Variational Auto-Encoder
+
+![Alt text](/images/blog/Blog2/image-9.png #pic_center)
+
+## VAE Variational Auto-Encoder
 ### 简介
 变分自编码器，Variation指的是分布的意思，意思是不在把分布映射到固定的变量上，而是映射到一个分布上(例如高斯分布模型)，VAE是目前最常用的
 
@@ -103,8 +107,6 @@ $$
     * LDM: Latent Diffusion Model
 * AE关心的是z(latent vectors/variables),前半部分(encoder)，其decoder只是用于确保可以学到一个很好的encoder而已
 * 而VAE只是关心的是生成的过程
-
-
 
 
 ![Alt text](/images/blog/Blog2/image-4.png)
