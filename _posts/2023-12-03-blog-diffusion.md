@@ -18,7 +18,10 @@ Auto是自己训练自己的意思，由encoder和decoder组成，重建图像�
 <p><img src="/images/blog/Blog2/image-9.png",align="middle" /></p>
 
 
-![Alt text](/images/blog/Blog2/image-9.png #pic_center)
+
+jm
+
+![Alt text](/images/blog/Blog2/image-9.png#pic_center)
 
 ## VAE Variational Auto-Encoder
 ### 简介
