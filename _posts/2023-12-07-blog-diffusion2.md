@@ -113,15 +113,56 @@ $$
 
 * **明白为什么要做最大化**
 
-在之前的概率论课程中，由于我只看重了刷题，因此每每看到最大似然估计是，我都会条件反射地去查wiki或者B站上的一个讲最大似然估计的视频[Bilibili](https://www.bilibili.com/video/BV1Hb4y1m7rE) (这个小崔老师是视频看了不下十遍了)，从而一直没有形成对最大似然估计直观上的理解，更不用说建立起最大似然估计与此处最大化$p_\theta(x)的联想。
+在之前的概率论课程中，由于我只看重了刷题，因此每每看到最大似然估计是，我都会条件反射地去查wiki或者B站上的一个讲最大似然估计的视频[Bilibili](https://www.bilibili.com/video/BV1Hb4y1m7rE) (这个小崔老师的视频我是看了不下十遍了)，从而一直没有形成对最大似然估计直观上的理解，更不用说建立起最大似然估计与此处最大化$p_\theta(x)$的联想。
 
 我每次查完最大似然估计，这都可以使用一句话来代替：首先，这是一个采样的过程，我们认为，概率越大的样本被采样到的可能性也是越大的，如果我们采样到了$X_{1},X_{2},...,X_{n}$,那么我们就认为这些样本对应的概率是最大的，因此，最大似然估计就是要计算出采样到 **我们当前采样出来的点的情况** 最大的模型参数$\theta$是怎样的，这样听起来有些拗口，但暂时我也找不到更好的表达了😅
 
-这个时候我们可以回归到变分下界的推导上来，正如我们做题时取对数一样，我们把目标转化为$\max logP(x)$
+这个时候我们可以回归到变分下界的推导上来，正如我们做题时取对数一样，我们把目标转化为$\max logP_\theta(x)$
 
 $$
-log P(x) = \int_{z}P(x)P(x\vert z)
+log P_\theta(x) = \int_{z}P_\theta(x)P_\theta(x\vert z)
 $$
+
+根据条件概率公式可以得到
+
+$$
+\int_{z}P_\theta(x)P_\theta(x\vert z) = \int_{z}q(z|x)log\left(\frac{P(z,x)}{P(z|x)}\right)dz
+$$
+
+这个时候再前文中我们一直说的$q(z\vert x)$
+
+$$
+\int_{z}q(z|x)log\left(\frac{P(z,x)}{P(z|x)}\right)dz =\int_{z}q(z|x)log\left(\frac{P(z,x)}{q(z|x)}\frac{q(z|x)}{P(z|x)}\right)dz
+$$
+
+将这个log中的东西分开得到
+
+$$
+\int_{z}q(z|x)log\left(\frac{P(z,x)}{q(z|x)}\frac{q(z|x)}{P(z|x)}\right)dz =\int_{z}q(z|x)log\left(\frac{P(z,x)}{q(z|x)}\right)dz+\int_{z}q(z|x)log\left(\frac{q\left(z|x\right)}{P(z|x)}\right)dz
+$$
+
+分开之后我们发现，右边这一项正好是大名鼎鼎的KL散度，于是我们得到了
+
+$$
+log P_\theta(x) =\int_{z}q(z|x)\log\left(\frac{P(z,x)}{q(z|x)}\right)dz+KL\big(q(z|x)\|P(z|x)\big)
+$$
+
+KL散度（也被称为相对熵），他的特点是会大于等于0（有待证明），因此我们可以得到
+
+$$
+logP_\theta(x)\geq\int_{z}q(z|x)log\left(\frac{P_\theta(x|z)P_\theta(z)}{q(z|x)}\right)dz
+$$
+
+这里的$\int_{z}q(z|x)log\left(\frac{P_\theta(x,z)}{q(z|x)}\right)dz$根据概率论的知识，我们还可以进一步简化为 $E_{z\sim q(z|x)}[\log\frac{p(z,x)}{q(z|x)}]$ 这就是传说中的ELBO变分下界，我们将其标记为$L_{b}$,于是原式子变为：
+
+$$
+logP_\theta(x)=L_{b}+KL(q(z|x)||P(z|x))
+$$
+
+这个上面这一系列的变换我们能明白了，但是为什么要进行这样的变换呢？之前我们说过
+
+
+
 
 
 
