@@ -35,11 +35,11 @@ $$
 
 如下图所示，在编码的过程中，隐变量可以根据解码的数据编码出全圆月图和半圆月图，但是作为一个合格的**生成模型**,我们期望的是其可以生成3/4月亮或者1/4的月亮。
 
-![全月图和半月图](/images/blog/BlogDiffusion2/image-1.png)#pic_center
+![全月图和半月图](/images/blog/BlogDiffusion2/image-1.png)
 
 解决这个问题的一个思路是引入噪声，是的原有的图片的编码区域编码一些，也即从一对一变到一对多的情况，使得图片的编码区域可以变大，如下图所示使得其中的空白编码点被掩盖掉：
 
-![空白编码点被掩盖掉](/images/blog/BlogDiffusion2/image-2.png)#pic_center
+![空白编码点被掩盖掉](/images/blog/BlogDiffusion2/image-2.png)
 
 这种情况下，如果给图片编码时候加入一点噪音，那么每张图片的编码点会出现在绿色箭头的范围内(噪音就是绿色范围对应的地方)，因此解码器在训练时候会把绿色范围内的点可以还原成这个绿色范围对应的原始图片。
 
@@ -106,7 +106,7 @@ p_\theta(x)=\int_zp_\theta(x,z)dz
 $$
 
 $$
-p_\theta(x)=\int_zp_\theta(x|z)p_\theta(z)dz
+p_\theta(x)=\int_zp_\theta(x\vert z)p_\theta(z)dz
 $$
 
 没错，大部分地方的表述都省略掉了$\theta$的概念，我们使用的VAE的目的是去重建出与原图一致或者符合原图分布的图像，在结构给出的情况下，我们要做的是去确定好模型的参数$\theta$
@@ -126,37 +126,37 @@ $$
 根据条件概率公式可以得到
 
 $$
-\int_{z}P_\theta(x)P_\theta(x\vert z) = \int_{z}q(z|x)log\left(\frac{P(z,x)}{P(z|x)}\right)dz
+\int_{z}P_\theta(x)P_\theta(x\vert z) = \int_{z}q(z\vert x)log\left(\frac{P(z,x)}{P(z\vert x)}\right)dz
 $$
 
 这个时候再前文中我们一直说的$q(z\vert x)$
 
 $$
-\int_{z}q(z|x)log\left(\frac{P(z,x)}{P(z|x)}\right)dz =\int_{z}q(z|x)log\left(\frac{P(z,x)}{q(z|x)}\frac{q(z|x)}{P(z|x)}\right)dz
+\int_{z}q(z\vert x)log\left(\frac{P(z,x)}{P(z\vert x)}\right)dz =\int_{z}q(z\vert x)log\left(\frac{P(z,x)}{q(z\vert x)}\frac{q(z\vert x)}{P(z\vert x)}\right)dz
 $$
 
 将这个log中的东西分开得到
 
 $$
-\int_{z}q(z|x)log\left(\frac{P(z,x)}{q(z|x)}\frac{q(z|x)}{P(z|x)}\right)dz =\int_{z}q(z|x)log\left(\frac{P(z,x)}{q(z|x)}\right)dz+\int_{z}q(z|x)log\left(\frac{q\left(z|x\right)}{P(z|x)}\right)dz
+\int_{z}q(z\vert x)log\left(\frac{P(z,x)}{q(z\vert x)}\frac{q(z\vert x)}{P(z\vert x)}\right)dz =\int_{z}q(z\vert x)log\left(\frac{P(z,x)}{q(z\vert x)}\right)dz+\int_{z}q(z\vert x)log\left(\frac{q\left(z\vert x\right)}{P(z\vert x)}\right)dz
 $$
 
 分开之后我们发现，右边这一项正好是大名鼎鼎的KL散度，于是我们得到了
 
 $$
-log P_\theta(x) =\int_{z}q(z|x)\log\left(\frac{P(z,x)}{q(z|x)}\right)dz+KL\big(q(z|x)\|P(z|x)\big)
+log P_\theta(x) =\int_{z}q(z\vert x)\log\left(\frac{P(z,x)}{q(z\vert x)}\right)dz+KL\big(q(z\vert x)\\vert P(z\vert x)\big)
 $$
 
 KL散度（也被称为相对熵），他的特点是会大于等于0（有待证明），因此我们可以得到
 
 $$
-logP_\theta(x)\geq\int_{z}q(z|x)log\left(\frac{P_\theta(x|z)P_\theta(z)}{q(z|x)}\right)dz
+logP_\theta(x)\geq\int_{z}q(z\vert x)log\left(\frac{P_\theta(x\vert z)P_\theta(z)}{q(z\vert x)}\right)dz
 $$
 
-这里的$\int_{z}q(z|x)log\left(\frac{P_\theta(x,z)}{q(z|x)}\right)dz$根据概率论的知识，我们还可以进一步简化为 $E_{z\sim q(z|x)}[\log\frac{p(z,x)}{q(z|x)}]$ 这就是传说中的ELBO变分下界，我们将其标记为$L_{b}$,于是原式子变为：
+这里的$\int_{z}q(z\vert x)log\left(\frac{P_\theta(x,z)}{q(z\vert x)}\right)dz$根据概率论的知识，我们还可以进一步简化为 $E_{z\sim q(z\vert x)}[\log\frac{p(z,x)}{q(z\vert x)}]$ 这就是传说中的ELBO变分下界，我们将其标记为$L_{b}$,于是原式子变为：
 
 $$
-logP_\theta(x)=L_{b}+KL(q(z|x)||P(z|x))
+logP_\theta(x)=L_{b}+KL(q(z\vert x)\vert \vert P(z\vert x))
 $$
 
 这个上面这一系列的变换我们能明白了，但是为什么要进行这样的变换呢？之前我们说过
