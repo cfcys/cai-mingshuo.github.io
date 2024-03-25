@@ -8,7 +8,7 @@ tags:
   - OpenBot
 ---
 
-这里记录了我复现Intel公司的项目[OpenBot](https://github.com/cfcys/My-OpenBot),我独立完成了焊接,环境配置,程序烧录等步骤，下面是成果的一些记录。
+这里记录了我复现Intel公司的项目[OpenBot](https://github.com/cfcys/My-OpenBot)的经历
 
 ![图片1](/images/hardware/openbot/微信图片_20221127160710.jpg#pic_center)
 
