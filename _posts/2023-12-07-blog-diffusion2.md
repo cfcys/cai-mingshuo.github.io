@@ -120,7 +120,7 @@ $$
 这个时候我们可以回归到变分下界的推导上来，正如我们做题时取对数一样，我们把目标转化为$\max logP_\theta(x)$
 
 $$
-log P_\theta(x) = \int_{z}P_\theta(x)P_\theta(x\vert z)
+log P_\theta(x) = \int_{z}P_\theta(x)P_\theta(x\vert z)dz
 $$
 
 根据条件概率公式可以得到
@@ -144,7 +144,7 @@ $$
 分开之后我们发现，右边这一项正好是大名鼎鼎的KL散度，于是我们得到了
 
 $$
-log P_\theta(x) =\int_{z}q(z\vert x)\log\left(\frac{P(z,x)}{q(z\vert x)}\right)dz+KL\big(q(z\vert x)\\vert P(z\vert x)\big)
+log P_\theta(x) =\int_{z}q(z\vert x)\log\left(\frac{P(z,x)}{q(z\vert x)}\right)dz+KL\big(q(z\vert x)\vert P(z\vert x)\big)
 $$
 
 KL散度（也被称为相对熵），他的特点是会大于等于0（有待证明），因此我们可以得到
@@ -159,7 +159,21 @@ $$
 logP_\theta(x)=L_{b}+KL(q(z\vert x)\vert \vert P(z\vert x))
 $$
 
-这个上面这一系列的变换我们能明白了，但是为什么要进行这样的变换呢？之前我们说过
+这个上面这一系列的变换我们能明白了，但是为什么要进行这样的变换呢？之前我们一直说的是我们要去最大化$P_\theta(x)$，而式5决定了当我们固定住$p(x\vert z)$时，$P_\theta(x)$的值也会随之固定，但当我们开始调节$q(z\vert x)$，让其不断变小，此时损失KL也会越变越小，而$L_b$则会不断变大；或者当我们把$q(z\vert x)$和$p(x\vert z)$调节到一样大小时，KL散度就完全为0了，$log P_\theta(x)$也彻底变成了$L_b$的样子；因此可以得到的一个重要结论是**不论$log P_\theta(x)$的怎样的，总存在一种情况$L_b$和$log P_\theta(x)$是相等的，因此我们直接将$log P_\theta(x)$和$L_b$等价起来，认为求解$\max logP_\theta(x)$就是求解$\max l_b$
+
+然后，我们利用概率论的力量将$l_b$展开,便得到了我们平时常见很多的VAE的损失
+
+$$\begin{gathered}
+\ {\mathcal L}_{b}=\int_{z}q(z|x)\log\left(\frac{P(z,x)}{q(z|x)}\right)dz \\
+=\int_{z}q(z|x)log\left(\frac{P(x|z)P(z)}{q(z|x)}\right)dz \\
+=\int_{z}q(z|x)log\left(\frac{P(z)}{q(z|x)}\right)dz+\int_{z}q(z|x)logP(x|z)dz \\
+=-KL\big(q(z|x)||P(z)\big)+\int_{z}q(z|x)logP(x|z)dz \\
+=  -KL\big(q(z|x)||P(z)\big) + E_{q(z|x)}[\log P(x|z)]
+\end{gathered}$$
+
+## 总结
+
+通过这次的记录，对VAE尤其是变分下界的推导熟悉了很多，但是推导的内容还是抄的这[这一篇](https://www.gwylab.com/note-vae.html),期望以后可以自己完整地推一些独到的内容吧
 
 
 
@@ -171,4 +185,5 @@ $$
 
 ## 参考资料
 
-https://zhuanlan.zhihu.com/p/578619659
+[VAE模型解析（loss函数，调参...）](https://zhuanlan.zhihu.com/p/578619659)
+[【学习笔记】生成模型——变分自编码器](https://www.gwylab.com/note-vae.html)
