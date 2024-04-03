@@ -10,25 +10,25 @@ const camera = new SPLAT.Camera();
 const controls = new SPLAT.OrbitControls(camera, canvas);
 
 async function main() {
-    // Load and convert ply from url
-    // const url =
-    //     "https://huggingface.co/datasets/dylanebert/3dgs/resolve/main/bonsai/point_cloud/iteration_7000/point_cloud.ply";
-    // const url = "model/door.ply"
-    // const url = "model/LB.ply"
-    // const url = "model/point_cloud.ply"
-    // const url = "https://huggingface.co/datasets/Cfcys/gsplat_view/blob/main/LB.ply"
-    const url = "https://huggingface.co/datasets/Cfcys/gsplat_view/resolve/main/LB.ply"
-    await SPLAT.PLYLoader.LoadAsync(url, scene, (progress) => (progressIndicator.value = progress * 100));
-    progressDialog.close();
-    scene.saveToFile("bonsai.splat");
+    // const url = "https://huggingface.co/datasets/dylanebert/3dgs/resolve/main/bonsai/bonsai-7k-mini.splat";
+    const url = "https://huggingface.co/datasets/Cfcys/gsplat_view/resolve/main/LB.splat"
 
-    // Render loop
+    await SPLAT.Loader.LoadAsync(url, scene, (progress) => progressIndicator.value = progress * 100);
+    progressDialog.close();
+
+    const handleResize = () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+
     const frame = () => {
         controls.update();
         renderer.render(scene, camera);
 
         requestAnimationFrame(frame);
     };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     requestAnimationFrame(frame);
 }
