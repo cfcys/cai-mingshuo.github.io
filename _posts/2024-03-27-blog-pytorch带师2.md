@@ -107,6 +107,10 @@ False
 
 ```
 
+# `tensor.view & tensor.reshape`
+
+
+
 ## 参考资料
 [Enzo_Ai](https://www.bilibili.com/video/BV1tC411L7Hh/?spm_id_from=333.788.0.0&vd_source=32f9de072b771f1cd307ca15ecf84087)
 
