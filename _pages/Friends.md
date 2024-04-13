@@ -4,10 +4,21 @@ title: "My Firedns"
 modified: 2016-06-06
 ---
 
+<h2>友情链接</h2>
+<p>欢迎交换友链~</p>
 
-- ![zjw](/images/Friends/me.png) 
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+
+<div style="text-align: center;">
+    <img src="/images/Friends/me.png" style="width: 80px; height: 80px; border-radius: 50%;" alt="reuixiy" />
+    <h3><a href="https://zjwfufu.github.io" style="text-decoration: none; color: #333;">zjw</a></h3>
+    <p>"xdu智能院20级唯一真神"</p>
+</div>
+
+
+<!-- - ![zjw](/images/Friends/me.png) 
   [zjw](https://zjwfufu.github.io)  
-  "xdu智能院20级唯一真神"
+  "xdu智能院20级唯一真神" -->
 
 
 
