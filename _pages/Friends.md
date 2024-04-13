@@ -12,7 +12,6 @@ modified: 2016-06-06
 <div style="text-align: center;">
     <img src="/images/Friends/me.png" style="width: 80px; height: 80px; border-radius: 50%;" alt="reuixiy" />
     <h3><a href="https://zjwfufu.github.io" style="text-decoration: none; color: #333;">zjw</a></h3>
-    <p>"xdu智能院20级唯一真神"</p>
 </div>
 
 
