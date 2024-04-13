@@ -4,9 +4,10 @@ title: "My Firedns"
 modified: 2016-06-06
 ---
 
-{% include base_path %}
-{% include toc %}
 
-## 🥰
+- ![zjw](/images/Friends/me.png) 
+  [zjw](https://zjwfufu.github.io)  
+  "xdu智能院20级唯一真神"
+
 
 
