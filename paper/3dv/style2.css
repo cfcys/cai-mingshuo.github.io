@@ -1,0 +1,53 @@
+/* 设置页面背景、文字和布局 */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 配置主容器 */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* 使用整个视口宽度 */
+    height: 100vh; /* 使用整个视口高度 */
+}
+
+.container h1 {
+    font-size: 64px; /* 设置字体大小 */
+    font-family: 'Times New Roman', serif; /* 设置字体为新罗马字体 */
+    font-weight: bold; /* 设置字体为粗体 */
+}
+
+/* 设置导航列表 */
+nav ul {
+    display: flex; /* 使用Flexbox布局 */
+    list-style-type: none; /* 移除列表标记 */
+    padding: 0; /* 移除默认的内边距 */
+}
+
+/* 配置每个列表项 */
+nav ul li {
+    margin: 0 10px; /* 在列表项之间添加水平间距 */
+}
+
+/* 设置链接样式 */
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px; /* 设置链接文字大小 */
+    font-family: 'Times New Roman', serif; /* 设置字体为新罗马字体 */
+}
+
+/* 设置鼠标悬停效果 */
+a:hover {
+    color: grey;
+}
+
