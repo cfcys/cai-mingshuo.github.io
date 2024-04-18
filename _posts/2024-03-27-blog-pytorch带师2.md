@@ -7,11 +7,7 @@ tags:
   - Pytorch
 ---
 
-如果不知道干什么，就写写博客总结总结
-
-# `torch.nn.Parameter & torch.Tensor`
-
-> 学这个主要是因为我在深度学习的上机中对于“冻结权重”这个相对常见的操作感到一脸懵逼，这还是在提醒我自己的torch并**不熟练**。
+因为我在深度学习的上机中对于“冻结权重”这个相对常见的操作感到一脸懵逼，这还是在提醒我自己的torch并**不熟练**。
 
 当时的一个操作是这样的，在前50个batch中将原始网络中backbone中的权重去冻结，在后面100个batch中将权重去解冻，这样的话即加快了收敛，也省了很多事情。
 
@@ -27,7 +23,7 @@ for param in model.backbone.parameters():
 ```
 
 
-##  `torch.nn.parameter`
+#  `torch.nn.parameter`
 
 `torch.nn.parameter`是torch中一种特殊类型的tensor，用于表示神经网络中的可学习参数，for example，全连接层中的`torch.nn.Linear()`中的参数weight和bias。
  
@@ -87,7 +83,7 @@ output:
 False
 ```
 
-### required_grad属性
+## required_grad属性
 
 这一点相对容易理解，也即使用`torch.nn.Parameter`定义的对象其`required_grad`属性默认为True,而一个简单的`torch.Tensor`定义的张量其`required_grad`属性默认为False。
 
@@ -96,7 +92,7 @@ False
 * 对于普通的`torch.Tensor`对象，**即使将其`required_grad`属性设置为True，也不会被自动的添加到模型的参数中去，也不会被优化器自动更新**。
 
 
-## `nn.Linear`
+# `nn.Linear`
 
 `nn.Linear`是我们炼丹时候十分常见且简易一个操作，但是有了上面这些知识的先验，我们印象中的`nn.Linear`应该有所改变,例如，至少我们要明白，其中的`weight`和`bias`属性都是通过`torch.nn.Parameter`封装起来的。
 
@@ -120,7 +116,18 @@ False
 
 # `tensor.view & tensor.reshape`
 
-发现一篇写的十分👍的
+发现一篇写的十分详细的，从底层开始剖析的[知乎博客](https://zhuanlan.zhihu.com/p/436892343)
+
+`tensor.view & tensor.reshape`在实际中的表现为重新组织shape
+    - `tensor.view`返回的是一个新的视图，数据的共享，有contiguous(连续)的要求
+    - `tensor.reshape`更加的鲁棒，没有contiguous的要求
+
+* **什么叫contiguous**
+
+例如这个2维度的数组`arr = np.arrange(12).reshape(3,4)`
+![创建的二维的数组](image-2.png)
+在计算机的内存中，他其实是这样的存储的
+![计算机内存中的存储](image-3.png)，这就是“contiguous”
 
 # `torch.nn.Embedding`
 
