@@ -1,0 +1,53 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+dialog {
+    width: 100%;
+    text-align: center;
+    max-width: 20em;
+    color: white;
+    background-color: #000;
+    border: none;
+    position: relative;
+    transform: translate(-50%, -50%);
+}
+
+#progress-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 48px; /* 设置字体大小 */
+    font-family: 'Times New Roman', serif; /* 设置字体为新罗马字体 */
+    font-weight: bold; /* 设置字体为粗体 */
+}
+
+progress {
+    width: 100%;
+    height: 1em;
+    border: none;
+    background-color: #fff;
+    color: #eee;
+
+}
+
+progress::-webkit-progress-bar {
+    background-color: #333;
+}
+
+progress::-webkit-progress-value {
+    background-color: #eee;
+}
+
+progress::-moz-progress-bar {
+    background-color: #eee;
+}
