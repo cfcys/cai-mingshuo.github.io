@@ -1,7 +1,7 @@
 ---
 title: 'Pytorch进阶之杂七杂八的知识点总结'
 date: 2024-04-07
-permalink: /posts/2024/03/blog-Pytorch/
+permalink: /posts/2024/03/blog-Pytorch2/
 star: superior
 tags:
   - Pytorch

@@ -1,7 +1,7 @@
 ---
 title: 'Pytorch进阶之那些基础但重要的知识点'
 date: 2024-03-17
-permalink: /posts/2024/03/blog-Pytorch/
+permalink: /posts/2024/03/blog-Pytorch1/
 star: superior
 tags:
   - Pytorch
