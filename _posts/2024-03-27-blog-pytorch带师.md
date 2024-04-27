@@ -11,6 +11,8 @@ tags:
 
 作为每一个torch模型的base class，
 
+# `LayerNorm & BatchNorm`
+
 ## 参考资料
 [Docs](https://pytorch.org/docs/stable/generated/torch.nn.Module.html)
 
