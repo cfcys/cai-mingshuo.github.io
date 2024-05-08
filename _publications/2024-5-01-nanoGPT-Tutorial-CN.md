@@ -1,5 +1,5 @@
 ---
-title: "nanoGPT-Tutorial-CN"
+title: "nanoGPT中文版教程"
 collection: publications
 permalink: /publication/2024-5-01-nanoGPT-Tutorial-CN
 excerpt: 'This is a tutorial about how to make a gpt step by step. '
