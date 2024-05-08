@@ -3,7 +3,7 @@ title: "Mind the Gap: Multi-Level
 Unsupervised Domain Adaptation for Cross-scene
 Hyperspectral Image Classification"
 collection: publications
-permalink: /publication/2024-10-01-TGRS-MLUDA-1
+permalink: /publication/2024-3-01-TGRS-MLUDA-1
 excerpt: 'This paper is about transfer learning. '
 date: 2024-02-18
 venue: 'Journal 1'
