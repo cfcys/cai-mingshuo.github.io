@@ -125,9 +125,9 @@ False
 * **什么叫contiguous**
 
 例如这个2维度的数组`arr = np.arrange(12).reshape(3,4)`
-![创建的二维的数组](image-2.png)
+![创建的二维的数组](/images/blog/BlogTorch/image-2.png)
 在计算机的内存中，他其实是这样的存储的
-![计算机内存中的存储](image-3.png)，这就是“contiguous”
+![计算机内存中的存储](/images/blog/BlogTorch/image-3.png)，这就是“contiguous”
 
 # `torch.nn.Embedding`
 
@@ -139,7 +139,7 @@ False
 
 `embedding`是将词向量中的词映射为固定长度的词向量的技术，可以将one_hot出来的高维度的稀疏的向量转化成低维的连续的向量
 
-![直观显示词与词之间的关系](image-1.png)
+![直观显示词与词之间的关系](/images/blog/BlogTorch/image-1.png)
 
 
 
