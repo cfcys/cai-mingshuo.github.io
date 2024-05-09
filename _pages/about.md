@@ -26,13 +26,7 @@ I am very fortunate to be advised by [Bobo Xi](https://web.xidian.edu.cn/xibobo/
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-👨‍💻 Studying
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-
-Selected Blog Posts
+👨‍💻 Selected Blog Posts
 ======
 
 <ul>{% for post in site.posts %}
