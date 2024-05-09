@@ -1,7 +1,7 @@
 ---
 title: "nanoGPTnanoGPT-Tutorial-CN"
 collection: publications
-permalink: /publications/2024-5-01-nanoGPT-TutorialCN-2
+permalink: /publication/2024-5-01-nanoGPT-TutorialCN-2
 excerpt: 'This is a tutorial about how to make a gpt step by step. '
 date: 2024-05-01
 venue: 'Journal 1'
