@@ -12,16 +12,16 @@ tags:
 作为每一个torch模型的base class，
 
 # `LayerNorm & BatchNorm & GroupNorm`
-
+ƒ
 > 都是深度学习中常用的归一化方式，他们都是将输入归一化到均值为0和方差为1的分布中，来防止梯度消失和爆炸，并提高模型的泛化能力,那么它们到底有什么区别呢
 
 ## BatchNorm
 
 我们常见的情况是这样的，在CNN中，卷积层后面会跟一个BatchNorm层，（因为归一化之后的数据大多都为0.几了，如果不进行归一化，1.几这样连续地乘上几次就爆炸了，同样如果是0.0000 连续地乘上几次梯度就消失不见了）防止梯度的消失和爆炸，从而提高模型的稳定性。以下面的图示为例：
 
-![alt text](image-8.png)
+![alt text](/images/blog/BlogTorch/image-8.png)
 
-从图中wo m
+...
 
 
 
@@ -54,7 +54,7 @@ e.backward()
 
 我们将上述代码中的操作以计算图的形式进行可视化：
 
-![计算图](image-6.png)
+![计算图](/images/blog/BlogTorch/image-6.png)
 
 在该图中，叶子节点为a
 

@@ -14,25 +14,19 @@ I am very fortunate to be advised by [Bobo Xi](https://web.xidian.edu.cn/xibobo/
 
 <!-- You can find my CV here: [XX's Curriculum Vitae](../assets/Curriculum_Vitae.pdf). -->
 
-Publications
+📝 Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-Competitions
+🏅 Competitions
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-Studying
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-
-Selected Blog Posts
+👨‍💻 Selected Blog Posts
 ======
 
 <ul>{% for post in site.posts %}
