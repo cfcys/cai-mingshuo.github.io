@@ -1,5 +1,5 @@
 ---
-title: 'Pytorch进阶之杂七杂八的知识点总结'
+title: 'Pytorch进阶之那些基础但重要的知识点二'
 date: 2024-04-07
 permalink: /posts/2024/03/blog-Pytorch2/
 star: superior
