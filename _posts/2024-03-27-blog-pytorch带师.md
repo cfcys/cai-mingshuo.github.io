@@ -12,19 +12,49 @@ tags:
 作为每一个torch模型的base class，
 
 # `LayerNorm & BatchNorm & GroupNorm`
-ƒ
-> 都是深度学习中常用的归一化方式，他们都是将输入归一化到均值为0和方差为1的分布中，来防止梯度消失和爆炸，并提高模型的泛化能力,那么它们到底有什么区别呢
+
+这些都是深度学习中常用的归一化方式，他们都是将输入归一化到均值为0和方差为1的分布中，来防止梯度消失和爆炸，并提高模型的泛化能力,那么它们的区别是什么呢，我们在使用时候又该如何去区分呢
 
 ## BatchNorm
 
-我们常见的情况是这样的，在CNN中，卷积层后面会跟一个BatchNorm层，（因为归一化之后的数据大多都为0.几了，如果不进行归一化，1.几这样连续地乘上几次就爆炸了，同样如果是0.0000 连续地乘上几次梯度就消失不见了）防止梯度的消失和爆炸，从而提高模型的稳定性。以下面的图示为例：
+常见的情况是这样的：在CNN中，卷积层后面会跟一个BatchNorm层，（因为归一化之后的数据大多都为0.几了，如果不进行归一化，1.几这样连续地乘上几次就爆炸了，同样如果是0.0000 连续地乘上几次梯度就消失不见了）防止梯度的消失和爆炸，从而提高模型的稳定性。以下面的图示为例：
 
 ![alt text](/images/blog/BlogTorch/image-8.png)
 
-...
+在上图的示例中，我们使用的是`nn.BatchNorm2d(num_features=4)`。这里输入的参数是4表示的是输入的通道数量是4.这里比较反直觉的是，对于`(2,4,2,2)`形状的Tensor，其做归一化的维度是channels维度，如果这个过程从0开始手写是这样的：
 
+```python
+for i in range(feature_array.shape[0]):
+    channel = feature_array[:,i,:,:]
+    mean = channel.mean()
+    var = channel.var()
 
-# `计算图`
+    feature_array[:,i,:,:] = (channel - mean)/np.sqrt(var + 1e-5)
+```
+
+如果使用torch的框架是这样的：
+
+```python
+import torch.nn as nn
+bn_out = nn.BatchNorm2d(num_features = 4,eps=1e-5)(feature_tensor)
+
+```
+
+## LayerNorm
+
+layerNorm操作更常见是在Transformer的结构中，一般输入的尺寸为`(batch_size,token_num,dim)`,然后会在最后一个维度(每个tokeb的维度)去做归一化，一般是使用`nn.LayerNorm(dim)`来进行层归一化的操作。
+
+![层归一化示意图](/images/blog/BlogTorch/image-100.png)
+
+## GroupNorm
+
+一般，当batchsize过大或者过小时候都不适合BatchNorm,Batchsize过大时候，BN会将所有的数据归一化到相同的均值和方差，而batchsize过小时候，BN可能无法有效学习数据的统计信息。（GroupNorm在当前的大模型用的比较火
+
+![Alt text](/images/blog/BlogTorch/image-200.png)
+
+上图是在`nn.GroupNorm(num_groups=2,num_channels=4)`的情况下进行的，也即图像有四个通道，然后我们将四个通道分成两个组。
+
+# 计算图の概念
 
 ## 针对于叶子节点：
 
@@ -174,7 +204,8 @@ True
 mlp.fc3.weight.is_leaf
 True
 ```
-## 总结
+
+* 计算图总结
 
 - 反向传播，链式法则，内部非叶子节点（non-leaf node，哪怕 requires_grad 为 true，且其存在 grad_fn）也是会算梯度的，只是用完就置空了，
     - 因此如果相查看内部非叶子节点的 grad，需要 retain_graph 保留在计算图中;
@@ -187,8 +218,10 @@ True
 
 ## 参考资料
 [Pytorch官方Docs](https://pytorch.org/docs/stable/generated/torch.nn.Module.html)
-[Enzo_Mi](https://www.bilibili.com/video/BV1UG411f7DL/?spm_id_from=333.337.search-card.all.click&vd_source=32f9de072b771f1cd307ca15ecf84087)
-[五道口纳什](https://www.bilibili.com/video/BV1DH4y1N7it/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=32f9de072b771f1cd307ca15ecf84087)
+
+[BilibiliUp主：Enzo_Mi](https://www.bilibili.com/video/BV1UG411f7DL/?spm_id_from=333.337.search-card.all.click&vd_source=32f9de072b771f1cd307ca15ecf84087)
+
+[BilibiliUp主：五道口纳什](https://www.bilibili.com/video/BV1DH4y1N7it/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=32f9de072b771f1cd307ca15ecf84087)
 
 
 
