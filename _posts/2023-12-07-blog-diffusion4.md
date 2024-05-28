@@ -2,7 +2,7 @@
 title: 'Diffusion入门知识4---彻底搞懂扩散模型'
 date: 2024-04-16
 permalink: /posts/2024/01/blog----彻底搞懂扩散模型/
-star: superior
+# star: superior
 tags:
   - 扩散模型
   - VAE
