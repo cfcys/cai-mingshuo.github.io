@@ -13,4 +13,4 @@ Hyperspectral Image Classification" TGRS.'
 ---
 
 
- [Project page](https://cfcys.github.io/paper/MLUDA.html)
+[Project page](https://cfcys.github.io/paper/MLUDA.html)

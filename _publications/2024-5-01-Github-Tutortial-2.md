@@ -1,8 +1,8 @@
 ---
 title: "🤖nanoGPT-Tutorial-CN"
 collection: publications
-permalink: /publications/2024-3-01-TGRS-MLUDA-1
-excerpt: 'This paper is about transfer learning. '
+permalink: /publications/2024-3-01-Github-Tutortial-2
+excerpt: 'This project is a tutorial about GPT. '
 date: 2024-03-01
 venue: 'Journal 1'
 paperurl: 'https://github.com/cfcys/nanoGPT-Tutorial-CN'
