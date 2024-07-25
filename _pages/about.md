@@ -8,7 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-I'm a third year undergraduate student from [School of Artifical Intelligence](https://sai.xidian.edu.cn/), [Xidian University](https://www.xidian.edu.cn/). My research interest includes computer vision, 3D Version and LLMs.
 I'm a third year undergraduate student from [School of Artifical Intelligence](https://sai.xidian.edu.cn/), [Xidian University](https://www.xidian.edu.cn/). My research interest is 3D computer vision.
 
 I am very fortunate to be advised by [Bobo Xi](https://web.xidian.edu.cn/xibobo/) of [State Key Laboratory of Integrated Service Networks](https://isn.xidian.edu.cn/), School of Telecommunications Engineering, Xidian University.
