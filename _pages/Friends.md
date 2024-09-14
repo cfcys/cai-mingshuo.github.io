@@ -1,6 +1,6 @@
 ---
 permalink: /Friends/
-title: "My Firedns"
+title: "My Firends"
 modified: 2016-06-06
 ---
 
@@ -18,6 +18,11 @@ modified: 2016-06-06
 <div style="text-align: center;">
     <img src="/images/Friends/jky.png" style="width: 80px; height: 80px; border-radius: 50%;" alt="reuixiy" />
     <h3><a href="https://ky-ji.github.io/" style="text-decoration: none; color: #333;">jky</a></h3>
+</div>
+
+<div style="text-align: center;">
+    <img src="/images/Friends/fsy.png" style="width: 80px; height: 80px; border-radius: 50%;" alt="reuixiy" />
+    <h3><a href="https://github.com/XenoWYC121" style="text-decoration: none; color: #333;">jky</a></h3>
 </div>
 
 
