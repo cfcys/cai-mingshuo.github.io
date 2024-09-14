@@ -15,6 +15,12 @@ modified: 2016-06-06
 </div>
 
 
+<div style="text-align: center;">
+    <img src="/images/Friends/jky.png" style="width: 80px; height: 80px; border-radius: 50%;" alt="reuixiy" />
+    <h3><a href="https://ky-ji.github.io/" style="text-decoration: none; color: #333;">jky</a></h3>
+</div>
+
+
 <!-- - ![zjw](/images/Friends/me.png) 
   [zjw](https://zjwfufu.github.io)  
   "xdu智能院20级唯一真神" -->
